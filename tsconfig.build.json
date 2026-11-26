@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "declaration": true,
+    "declarationMap": false,
+    "emitDeclarationOnly": true,
+    "outDir": "./dist",
+    "rootDir": "./projects/satoshi-native-ui/src",
+    "types": ["node"]
+  },
+  "include": ["projects/satoshi-native-ui/src"],
+  "exclude": ["**/*.test.*", "**/*.stories.*"]
+}

@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "types": ["node", "jest", "nativewind/types"]
+  },
+  "include": [
+    "projects/satoshi-native-ui/src",
+    "projects/satoshi-native-ui/test",
+    "stories"
+  ]
+}

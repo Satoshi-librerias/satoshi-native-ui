@@ -1,0 +1,36 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+coverage/
+docs/storybook/
+*.tsbuildinfo
+
+# Logs
+*.log
+npm-debug.log*
+
+# Editor
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# React Native
+*.hprof
+.cxx/
+
+# Metro
+.metro-health-check*
+*.tsbuildinfo
+package-lock.json

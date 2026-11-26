@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Tokens de tema Satoshi. Deben mantenerse sincronizados con
+ * libs/constants/theme-palette.const.ts (LIGHT_THEME_COLORS y
+ * DARK_THEME_COLORS) que alimenta el PaperProvider de react-native-paper.
+ */
+:root,
+[data-theme="light"] {
+  --satoshi-primary: #570df8;
+  --satoshi-primary-content: #ffffff;
+  --satoshi-secondary: #f000b8;
+  --satoshi-secondary-content: #ffffff;
+  --satoshi-accent: #37cdbe;
+  --satoshi-accent-content: #16302d;
+  --satoshi-neutral: #3d4451;
+  --satoshi-neutral-content: #ffffff;
+  --satoshi-base-100: #ffffff;
+  --satoshi-base-200: #f2f2f2;
+  --satoshi-base-300: #e5e6e6;
+  --satoshi-base-content: #1d2939;
+  --satoshi-info: #00b5ff;
+  --satoshi-info-content: #ffffff;
+  --satoshi-success: #00a96e;
+  --satoshi-success-content: #ffffff;
+  --satoshi-warning: #ffbe00;
+  --satoshi-warning-content: #1d2939;
+  --satoshi-error: #ff6f70;
+  --satoshi-error-content: #1d2939;
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  --satoshi-primary: #8b5cf6;
+  --satoshi-primary-content: #faf5ff;
+  --satoshi-secondary: #ec4899;
+  --satoshi-secondary-content: #fdf2f8;
+  --satoshi-accent: #22d3ee;
+  --satoshi-accent-content: #083344;
+  --satoshi-neutral: #1e293b;
+  --satoshi-neutral-content: #e2e8f0;
+  --satoshi-base-100: #1d232a;
+  --satoshi-base-200: #191e24;
+  --satoshi-base-300: #15191e;
+  --satoshi-base-content: #cbd5e1;
+  --satoshi-info: #38bdf8;
+  --satoshi-info-content: #082f49;
+  --satoshi-success: #34d399;
+  --satoshi-success-content: #064e3b;
+  --satoshi-warning: #fbbf24;
+  --satoshi-warning-content: #451a03;
+  --satoshi-error: #f87171;
+  --satoshi-error-content: #450a0a;
+  color-scheme: dark;
+}

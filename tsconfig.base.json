@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM"],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "jsx": "react-jsx",
+    "strict": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "forceConsistentCasingInFileNames": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "useDefineForClassFields": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./projects/satoshi-native-ui/src/*"],
+      "@libs": ["./projects/satoshi-native-ui/src/libs/index.ts"],
+      "@libs/*": ["./projects/satoshi-native-ui/src/libs/*"],
+      "@components": ["./projects/satoshi-native-ui/src/components/index.ts"],
+      "@components/*": ["./projects/satoshi-native-ui/src/components/*"],
+      "@test/*": ["./projects/satoshi-native-ui/test/*"],
+      "@assets/*": ["./projects/satoshi-native-ui/src/assets/*"]
+    }
+  }
+}
