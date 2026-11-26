@@ -2,7 +2,7 @@ import { memo } from "react";
 import type { FC, JSX } from "react";
 import { Card as PaperCard, Text } from "react-native-paper";
 import { useTheme } from "@libs/hooks";
-import { getVariantColor } from "@libs/utils";
+import { getCardClasses } from "../utils/get-card-classes.util";
 import type { CardProps } from "../types/card.types";
 
 /**
@@ -24,20 +24,13 @@ const CardView = memo(function CardView({
   Pick<CardProps, "children">): JSX.Element {
   const { paperTheme: theme } = useTheme();
 
-  const backgroundColor =
-    variant === "base" ? theme.colors.surface : getVariantColor(theme, variant);
-
-  const contentColor =
-    variant === "base" ? theme.colors.onSurface : theme.colors.onPrimary;
-
   return (
     <PaperCard
-      className={`rounded-2xl ${className}`.trim()}
-      style={{ backgroundColor }}
+      className={`${getCardClasses({ variant })} ${className}`.trim()}
       theme={theme}
     >
       <PaperCard.Content>
-        <Text style={{ color: contentColor }}>{children}</Text>
+        <Text>{children}</Text>
       </PaperCard.Content>
     </PaperCard>
   );

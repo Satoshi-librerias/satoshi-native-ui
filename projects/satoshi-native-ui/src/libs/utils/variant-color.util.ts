@@ -1,4 +1,5 @@
 import type { MD3Theme } from "react-native-paper";
+import type { MD3ThemeExtension } from "@libs/types";
 
 /**
  * @description Define las claves de color MD3 usadas por las variantes
@@ -18,15 +19,16 @@ export type SatoshiVariantColor =
 
 /**
  * @description Mapa de variantes semanticas a claves de la paleta MD3. Las
- * claves extendidas de la paleta satoshi se resuelven como texto libre.
+ * claves extendidas de la paleta satoshi (neutral, info, success, warning)
+ * se exponen en el tema por createPaperTheme.
  * @author Steveen Cues
- * @version 1.0.0
+ * @version 1.1.0
  */
 const VARIANT_COLOR_KEYS: Record<SatoshiVariantColor, string> = {
   primary: "primary",
   secondary: "secondary",
   accent: "tertiary",
-  neutral: "onSurfaceVariant",
+  neutral: "neutral",
   info: "info",
   success: "success",
   warning: "warning",
@@ -36,19 +38,21 @@ const VARIANT_COLOR_KEYS: Record<SatoshiVariantColor, string> = {
 /**
  * @description Resuelve el color MD3 de una variante semantica del tema
  * activo de react-native-paper. Las claves extendidas de la paleta satoshi
- * (info, success, warning) se leen del tema cuando estan disponibles.
+ * (neutral, info, success, warning) se leen del tema cuando estan
+ * disponibles y caen al color primario si el tema no las expone.
  * @param theme Tema MD3 activo.
  * @param variant Variante semantica solicitada.
  * @returns Color hexadecimal resuelto.
  * @author Steveen Cues
- * @version 1.0.0
+ * @version 1.1.0
  */
 export function getVariantColor(
   theme: MD3Theme,
   variant: SatoshiVariantColor,
 ): string {
   const colorKey = VARIANT_COLOR_KEYS[variant];
-  const palette = theme.colors as unknown as Record<string, string>;
+  const palette = theme.colors as unknown as MD3ThemeExtension &
+    Record<string, string>;
 
   return palette[colorKey] ?? theme.colors.primary;
 }

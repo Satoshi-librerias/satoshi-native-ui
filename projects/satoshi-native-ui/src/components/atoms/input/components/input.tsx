@@ -2,6 +2,7 @@ import { memo, useCallback } from "react";
 import type { FC, JSX } from "react";
 import { TextInput as PaperTextInput } from "react-native-paper";
 import { useTheme } from "@libs/hooks";
+import { getInputClasses } from "../utils/get-input-classes.util";
 import type { InputProps } from "../types/input.types";
 
 /**
@@ -108,7 +109,7 @@ const InputView = memo(function InputView({
   return (
     <PaperTextInput
       accessibilityLabel={ariaLabel}
-      className={className}
+      className={`${getInputClasses({ size, variant })} ${className}`.trim()}
       contentStyle={{ fontSize: INPUT_FONT_SIZE[size] }}
       disabled={disabled}
       keyboardType={INPUT_KEYBOARD_TYPE[type] ?? "default"}

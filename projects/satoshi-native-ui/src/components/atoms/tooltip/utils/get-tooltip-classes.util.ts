@@ -16,6 +16,7 @@ export function getTooltipClasses(options: TooltipClassOptions): string {
   const classes: readonly string[] = [
     TOOLTIP_BASE_CLASS,
     TOOLTIP_VARIANT_CLASSES[options.variant],
+    options.className ?? "",
   ];
 
   return classes

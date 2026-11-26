@@ -3,6 +3,7 @@ import type { FC, JSX } from "react";
 import { Switch as PaperSwitch } from "react-native-paper";
 import { useTheme } from "@libs/hooks";
 import { getVariantColor } from "@libs/utils";
+import { getSwitchClasses } from "../utils/get-switch-classes.util";
 import type { SwitchProps } from "../types/switch.types";
 
 /**
@@ -66,7 +67,7 @@ const SwitchView = memo(function SwitchView({
   return (
     <PaperSwitch
       accessibilityLabel={ariaLabel}
-      className={className}
+      className={`${getSwitchClasses({ size, variant })} ${className}`.trim()}
       color={getVariantColor(theme, variant)}
       disabled={disabled}
       onValueChange={handleChange}

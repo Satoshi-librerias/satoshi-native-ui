@@ -2,6 +2,7 @@ import { memo, useCallback } from "react";
 import type { FC, JSX } from "react";
 import { Button as PaperButton, Text } from "react-native-paper";
 import { useTheme } from "@libs/hooks";
+import { getButtonClasses } from "../utils/get-button-classes.util";
 import type { ButtonProps } from "../types/button.types";
 
 /**
@@ -102,7 +103,13 @@ const ButtonView = memo(function ButtonView({
   return (
     <PaperButton
       accessibilityLabel={ariaLabel}
-      className={`${isFullWidth ? "w-full" : ""} ${className}`.trim()}
+      className={`${getButtonClasses({
+        isFullWidth,
+        isLoading: isDisabled,
+        isOutlined,
+        size,
+        variant,
+      })} ${isFullWidth ? "w-full" : ""} ${className}`.trim()}
       disabled={isDisabled}
       labelStyle={BUTTON_LABEL_STYLE[size]}
       loading={isLoading}

@@ -34,3 +34,6 @@ Thumbs.db
 .metro-health-check*
 *.tsbuildinfo
 package-lock.json
+
+# Ops lifecycle (regenerable por la skill ops-lifecycle)
+.ops/

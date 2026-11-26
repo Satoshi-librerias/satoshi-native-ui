@@ -3,6 +3,7 @@ import type { FC, JSX } from "react";
 import { Avatar as PaperAvatar } from "react-native-paper";
 import { useTheme } from "@libs/hooks";
 import { getVariantColor } from "@libs/utils";
+import { getAvatarClasses } from "../utils/get-avatar-classes.util";
 import type { AvatarProps } from "../types/avatar.types";
 
 /**
@@ -32,7 +33,7 @@ const AvatarView = memo(function AvatarView({
     return (
       <PaperAvatar.Image
         accessibilityLabel={alt}
-        className={className}
+        className={`${getAvatarClasses({ variant })} ${className}`.trim()}
         size={48}
         source={{ uri: src }}
         theme={theme}
@@ -43,7 +44,7 @@ const AvatarView = memo(function AvatarView({
   return (
     <PaperAvatar.Text
       accessibilityLabel={alt}
-      className={className}
+      className={`${getAvatarClasses({ variant })} ${className}`.trim()}
       label={initials ?? ""}
       size={48}
       style={{ backgroundColor: getVariantColor(theme, variant) }}

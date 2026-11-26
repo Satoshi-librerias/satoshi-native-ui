@@ -2,7 +2,7 @@ import { memo } from "react";
 import type { FC, JSX } from "react";
 import { Divider as PaperDivider } from "react-native-paper";
 import { useTheme } from "@libs/hooks";
-import { getVariantColor } from "@libs/utils";
+import { getDividerClasses } from "../utils/get-divider-classes.util";
 import type { DividerProps } from "../types/divider.types";
 
 /**
@@ -27,12 +27,10 @@ const DividerView = memo(function DividerView({
 
   return (
     <PaperDivider
-      className={className}
-      style={{
-        backgroundColor: getVariantColor(theme, variant),
-        height: orientation === "vertical" ? "100%" : undefined,
-        width: orientation === "vertical" ? 1 : undefined,
-      }}
+      className={`${getDividerClasses({ orientation, variant })} ${className}`.trim()}
+      style={
+        orientation === "vertical" ? { height: "100%", width: 1 } : undefined
+      }
       theme={theme}
     />
   );

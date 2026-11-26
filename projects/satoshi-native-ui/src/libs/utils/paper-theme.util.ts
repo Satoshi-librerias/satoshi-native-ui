@@ -2,7 +2,7 @@ import { MD3DarkTheme, MD3LightTheme } from "react-native-paper";
 import type { MD3Theme } from "react-native-paper";
 import { DARK_THEME_COLORS, LIGHT_THEME_COLORS } from "@libs/constants";
 import type { AppTheme } from "@libs/interface";
-import type { SatoshiThemeColors } from "@libs/types";
+import type { MD3ThemeExtension, SatoshiThemeColors } from "@libs/types";
 import { isCustomThemeDefinition } from "./theme.utils";
 
 /**
@@ -57,6 +57,14 @@ export function createPaperTheme(theme: AppTheme): MD3Theme {
       outline: palette.base300,
       inverseSurface: palette.neutral,
       inverseOnSurface: palette.neutralContent,
-    },
+      neutral: palette.neutral,
+      onNeutral: palette.neutralContent,
+      info: palette.info,
+      onInfo: palette.infoContent,
+      success: palette.success,
+      onSuccess: palette.successContent,
+      warning: palette.warning,
+      onWarning: palette.warningContent,
+    } as MD3Theme["colors"] & MD3ThemeExtension,
   };
 }

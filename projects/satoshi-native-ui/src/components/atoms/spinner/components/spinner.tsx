@@ -3,6 +3,7 @@ import type { FC, JSX } from "react";
 import { ActivityIndicator as PaperActivityIndicator } from "react-native-paper";
 import { useTheme } from "@libs/hooks";
 import { getVariantColor } from "@libs/utils";
+import { getSpinnerClasses } from "../utils/get-spinner-classes.util";
 import type { SpinnerProps } from "../types/spinner.types";
 
 /**
@@ -30,7 +31,7 @@ const SpinnerView = memo(function SpinnerView({
     <PaperActivityIndicator
       accessibilityLabel={ariaLabel}
       animating={true}
-      className={className}
+      className={`${getSpinnerClasses({ size, variant })} ${className}`.trim()}
       color={getVariantColor(theme, variant)}
       size={size === "lg" ? "large" : "small"}
       theme={theme}

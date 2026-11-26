@@ -1,7 +1,9 @@
 import { memo } from "react";
 import type { FC, JSX } from "react";
 import { Tooltip as PaperTooltip } from "react-native-paper";
+import { View } from "react-native";
 import { useTheme } from "@libs/hooks";
+import { getTooltipClasses } from "../utils/get-tooltip-classes.util";
 import type { TooltipProps } from "../types/tooltip.types";
 
 /**
@@ -19,13 +21,17 @@ import type { TooltipProps } from "../types/tooltip.types";
 const TooltipView = memo(function TooltipView({
   children,
   message,
+  variant,
+  className,
 }: Required<Pick<TooltipProps, "variant" | "className">> &
   Pick<TooltipProps, "children" | "message">): JSX.Element {
   const { paperTheme: theme } = useTheme();
 
   return (
     <PaperTooltip theme={theme} title={message}>
-      {children as JSX.Element}
+      <View className={getTooltipClasses({ className, variant })}>
+        {children as JSX.Element}
+      </View>
     </PaperTooltip>
   );
 });

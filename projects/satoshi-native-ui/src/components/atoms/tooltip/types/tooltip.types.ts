@@ -25,4 +25,5 @@ export interface TooltipProps {
  */
 export interface TooltipClassOptions {
   readonly variant: NonNullable<TooltipProps["variant"]>;
+  readonly className?: string;
 }

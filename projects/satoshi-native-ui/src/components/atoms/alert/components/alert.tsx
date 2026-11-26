@@ -2,7 +2,7 @@ import { memo } from "react";
 import type { FC, JSX } from "react";
 import { Surface, Text } from "react-native-paper";
 import { useTheme } from "@libs/hooks";
-import { getVariantColor } from "@libs/utils";
+import { getAlertClasses } from "../utils/get-alert-classes.util";
 import type { AlertProps } from "../types/alert.types";
 
 /**
@@ -24,19 +24,14 @@ const AlertView = memo(function AlertView({
   Pick<AlertProps, "children">): JSX.Element {
   const { paperTheme: theme } = useTheme();
 
-  const contentColor =
-    variant === "neutral"
-      ? theme.colors.onSurface
-      : getVariantColor(theme, variant);
-
   return (
     <Surface
       accessibilityRole="alert"
-      className={`rounded-xl p-4 ${className}`.trim()}
+      className={`${getAlertClasses({ variant })} ${className}`.trim()}
       elevation={0}
       theme={theme}
     >
-      <Text style={{ color: contentColor }}>{children}</Text>
+      <Text>{children}</Text>
     </Surface>
   );
 });

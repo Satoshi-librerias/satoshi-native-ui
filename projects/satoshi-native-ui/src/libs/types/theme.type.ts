@@ -8,6 +8,24 @@ import type { CSS_THEME_TOKENS } from "@libs/constants/theme-css-variable.const"
 export type ThemeColorToken = keyof typeof CSS_THEME_TOKENS;
 
 /**
+ * @description Define las claves extendidas que la libreria anade al tema
+ * MD3 de react-native-paper para exponer la paleta satoshi completa
+ * (superficies y contenidos de neutral, info, success y warning).
+ * @author Steveen Cues
+ * @version 1.0.0
+ */
+export interface MD3ThemeExtension {
+  readonly neutral: string;
+  readonly onNeutral: string;
+  readonly info: string;
+  readonly onInfo: string;
+  readonly success: string;
+  readonly onSuccess: string;
+  readonly warning: string;
+  readonly onWarning: string;
+}
+
+/**
  * @description Define los colores que un tema personalizado utiliza.
  * La paleta replica los tokens semanticos de la libreria React original.
  * @author Steveen Cues

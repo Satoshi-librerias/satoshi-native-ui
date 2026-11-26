@@ -3,6 +3,7 @@ import type { FC, JSX } from "react";
 import { TextInput as PaperTextInput } from "react-native-paper";
 import { useTheme } from "@libs/hooks";
 import { TEXTAREA_DEFAULT_ROWS } from "../constants/textarea.constants";
+import { getTextareaClasses } from "../utils/get-textarea-classes.util";
 import type { TextareaProps } from "../types/textarea.types";
 
 /**
@@ -93,7 +94,7 @@ const TextareaView = memo(function TextareaView({
   return (
     <PaperTextInput
       accessibilityLabel={ariaLabel}
-      className={className}
+      className={`${getTextareaClasses({ size, variant })} ${className}`.trim()}
       contentStyle={{ fontSize: TEXTAREA_FONT_SIZE[size] }}
       disabled={disabled}
       mode={mode}

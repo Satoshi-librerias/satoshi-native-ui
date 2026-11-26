@@ -4,6 +4,7 @@ import { ProgressBar as PaperProgressBar } from "react-native-paper";
 import { useTheme } from "@libs/hooks";
 import { getVariantColor } from "@libs/utils";
 import { PROGRESS_DEFAULT_MAX } from "../constants/progress.constants";
+import { getProgressClasses } from "../utils/get-progress-classes.util";
 import type { ProgressProps } from "../types/progress.types";
 
 /**
@@ -35,7 +36,7 @@ const ProgressView = memo(function ProgressView({
   return (
     <PaperProgressBar
       accessibilityLabel={ariaLabel}
-      className={className}
+      className={`${getProgressClasses({ variant })} ${className}`.trim()}
       color={getVariantColor(theme, variant)}
       progress={progress}
       theme={theme}

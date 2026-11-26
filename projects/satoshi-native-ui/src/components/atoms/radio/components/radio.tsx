@@ -3,6 +3,7 @@ import type { FC, JSX } from "react";
 import { RadioButton as PaperRadioButton } from "react-native-paper";
 import { useTheme } from "@libs/hooks";
 import { getVariantColor } from "@libs/utils";
+import { getRadioClasses } from "../utils/get-radio-classes.util";
 import type { RadioProps } from "../types/radio.types";
 
 /**
@@ -26,6 +27,7 @@ const RadioView = memo(function RadioView({
   name,
   value,
   variant,
+  size,
   isChecked,
   disabled,
   ariaLabel,
@@ -47,7 +49,7 @@ const RadioView = memo(function RadioView({
   return (
     <PaperRadioButton.Android
       accessibilityLabel={ariaLabel}
-      className={className}
+      className={`${getRadioClasses({ size, variant })} ${className}`.trim()}
       color={getVariantColor(theme, variant)}
       disabled={disabled}
       onPress={handleChange}

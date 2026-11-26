@@ -3,9 +3,8 @@ import type { FC, JSX } from "react";
 import { Checkbox as PaperCheckbox } from "react-native-paper";
 import { useTheme } from "@libs/hooks";
 import { getVariantColor } from "@libs/utils";
-import type { CheckboxProps } from "../types/checkbox.types";
-
-/**
+import { getCheckboxClasses } from "../utils/get-checkbox-classes.util";
+import type { CheckboxProps } from "../types/checkbox.types"; /**
  * @description Renderiza el checkbox con las propiedades ya resueltas sobre
  * el nucleo de react-native-paper.
  * @param props Propiedades del checkbox.
@@ -22,6 +21,7 @@ import type { CheckboxProps } from "../types/checkbox.types";
  */
 const CheckboxView = memo(function CheckboxView({
   variant,
+  size,
   isChecked,
   disabled,
   ariaLabel,
@@ -43,7 +43,7 @@ const CheckboxView = memo(function CheckboxView({
   return (
     <PaperCheckbox.Android
       accessibilityLabel={ariaLabel}
-      className={className}
+      className={`${getCheckboxClasses({ size, variant })} ${className}`.trim()}
       color={getVariantColor(theme, variant)}
       disabled={disabled}
       onPress={handleChange}

@@ -2,7 +2,7 @@ import { memo } from "react";
 import type { FC, JSX } from "react";
 import { Badge as PaperBadge } from "react-native-paper";
 import { useTheme } from "@libs/hooks";
-import { getVariantColor } from "@libs/utils";
+import { getBadgeClasses } from "../utils/get-badge-classes.util";
 import type { BadgeProps } from "../types/badge.types";
 
 /**
@@ -53,11 +53,8 @@ const BadgeView = memo(function BadgeView({
   return (
     <PaperBadge
       accessibilityLabel={ariaLabel}
-      className={className}
+      className={`${getBadgeClasses({ isOutlined, size, variant })} ${className}`.trim()}
       style={{
-        backgroundColor: isOutlined
-          ? "transparent"
-          : getVariantColor(theme, variant),
         height: BADGE_HEIGHT[size],
       }}
       theme={theme}
